@@ -9,7 +9,7 @@
 int main() {
    
     //criando as variáveis para as cartas
-    char estado1[3], estado2[3];
+    char estado1, estado2;
     char codigo1[3], codigo2[3], cidade1[20], cidade2[20];
     int populacao1, pts_tur1, populacao2, pts_tur2;
     float area1, pib1, area2, pib2;
@@ -21,7 +21,7 @@ int main() {
     printf("Carta 1\n");
     
     printf("Digite o estado: ");
-    scanf("%s", estado1);
+    scanf(" %c", &estado1);
 
     printf("Digite o código da carta: ");
     scanf("%s", codigo1);
@@ -47,7 +47,7 @@ int main() {
     printf("Carta 2\n");
     
     printf("Digite o estado: ");
-    scanf("%s", estado2);
+    scanf(" %c", &estado2);
 
     printf("Digite o código da carta: ");
     scanf("%s", codigo2);
@@ -70,12 +70,12 @@ int main() {
     //aqui serão mostrados os dados inseridos pelo usuário em suas respectivas cartas
     printf("----------------------------------------\n");
 
-    printf("Carta 1:\n Estado: %s\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n",
+    printf("Carta 1:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n",
     estado1, codigo1, cidade1, populacao1, area1, pib1, pts_tur1);
 
     printf("----------------------------------------\n");
 
-    printf("Carta 2:\n Estado: %s\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n",
+    printf("Carta 2:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n",
     estado2, codigo2, cidade2, populacao2, area2, pib2, pts_tur2);
 
 
