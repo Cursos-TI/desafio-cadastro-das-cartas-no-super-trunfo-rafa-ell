@@ -12,7 +12,7 @@ int main() {
     char estado1, estado2;
     char codigo1[3], codigo2[3], cidade1[20], cidade2[20];
     int populacao1, pts_tur1, populacao2, pts_tur2;
-    float area1, pib1, area2, pib2;
+    float area1, pib1, area2, pib2, dens_pop1, dens_pop2, pibpc1, pibpc2;
 
     printf("Desafio Super Trunfo.\n");
     printf("\n");
@@ -70,13 +70,17 @@ int main() {
     //aqui serão mostrados os dados inseridos pelo usuário em suas respectivas cartas
     printf("----------------------------------------\n");
 
-    printf("Carta 1:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n",
-    estado1, codigo1, cidade1, populacao1, area1, pib1, pts_tur1);
+    dens_pop1 = populacao1 / area1; //calculando a densidade populacional para a carta 1
+    pibpc1 = pib1 / populacao1; //calculando o pib per capita para a carta 1
+
+    printf("Carta 1:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n Densidade Populacional: %.2f hab/Km²\n PIB Per Capita: R$%.2f\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pts_tur1, dens_pop1, pibpc1);
 
     printf("----------------------------------------\n");
 
-    printf("Carta 2:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n",
-    estado2, codigo2, cidade2, populacao2, area2, pib2, pts_tur2);
+    dens_pop2 = populacao2 / area2; //calculando a densidade populacional para a carta 2
+    pibpc2 = pib2 / populacao2; //calculando o pib per capita para a carta 2
+
+    printf("Carta 2:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n Densidade Populacional: %.2f hab/Km²\n PIB Per Capita: R$%.2f\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pts_tur2, dens_pop2, pibpc2);
 
 
 
