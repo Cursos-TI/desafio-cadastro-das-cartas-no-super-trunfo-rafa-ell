@@ -13,6 +13,7 @@ int main() {
     char codigo1[3], codigo2[3], cidade1[20], cidade2[20];
     int populacao1, pts_tur1, populacao2, pts_tur2;
     float area1, pib1, area2, pib2, dens_pop1, dens_pop2, pibpc1, pibpc2;
+    unsigned int superPoder1, superPoder2;
 
     printf("Desafio Super Trunfo.\n");
     printf("\n");
@@ -67,35 +68,58 @@ int main() {
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &pts_tur2);
 
+    //calculando a densidade populacional e o PIB das cartas
+    dens_pop1 = (area1 != 0) ? populacao1 / area1 : 0;  // Verifica se a área não é zero
+    pibpc1 = (populacao1 != 0) ? pib1 / populacao1 : 0;  // Verifica se a população não é zero
+
+    dens_pop2 = (area2 != 0) ? populacao2 / area2 : 0;  // Verifica se a área não é zero
+    pibpc2 = (populacao2 != 0) ? pib2 / populacao2 : 0;  // Verifica se a população não é zero
+
+    //calculando super poder das cartas 
+     // Calculando o super poder das cartas (inversão da densidade populacional)
+     superPoder1 = populacao1 + area1 + pib1 + pts_tur1 + (dens_pop1 != 0 ? 1 / dens_pop1 : 0) + pibpc1;
+     superPoder2 = populacao2 + area2 + pib2 + pts_tur2 + (dens_pop2 != 0 ? 1 / dens_pop2 : 0) + pibpc2;
+
     //aqui serão mostrados os dados inseridos pelo usuário em suas respectivas cartas
     printf("----------------------------------------\n");
 
-    dens_pop1 = populacao1 / area1; //calculando a densidade populacional para a carta 1
-    pibpc1 = pib1 / populacao1; //calculando o pib per capita para a carta 1
-
-    printf("Carta 1:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n Densidade Populacional: %.2f hab/Km²\n PIB Per Capita: R$%.2f\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pts_tur1, dens_pop1, pibpc1);
+    printf("Carta 1:\n");
+    printf(" Estado: %c\n", estado1);
+    printf(" Código da carta: %s\n", codigo1);
+    printf(" Nome da cidade: %s\n", cidade1);
+    printf(" População: %d\n", populacao1);
+    printf(" Área: %.2f Km²\n", area1);
+    printf(" PIB: R$%.2f\n", pib1);
+    printf(" Pontos turísticos: %d\n", pts_tur1);
+    printf(" Densidade Populacional: %.2f hab/Km²\n", dens_pop1);
+    printf(" PIB Per Capita: R$%.2f\n", pibpc1);
+    printf(" Super Poder: %u\n", superPoder1);
 
     printf("----------------------------------------\n");
 
-    dens_pop2 = populacao2 / area2; //calculando a densidade populacional para a carta 2
-    pibpc2 = pib2 / populacao2; //calculando o pib per capita para a carta 2
+    printf("Carta 2:\n");
+    printf(" Estado: %c\n", estado2);
+    printf(" Código da carta: %s\n", codigo2);
+    printf(" Nome da cidade: %s\n", cidade2);
+    printf(" População: %d\n", populacao2);
+    printf(" Área: %.2f Km²\n", area2);
+    printf(" PIB: R$%.2f\n", pib2);
+    printf(" Pontos turísticos: %d\n", pts_tur2);
+    printf(" Densidade Populacional: %.2f hab/Km²\n", dens_pop2);
+    printf(" PIB Per Capita: R$%.2f\n", pibpc2);
+    printf(" Super Poder: %u\n", superPoder2);
 
-    printf("Carta 2:\n Estado: %c\n Código da carta: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f Km²\n PIB: R$%.2f\n Pontos turísticos: %d\n Densidade Populacional: %.2f hab/Km²\n PIB Per Capita: R$%.2f\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pts_tur2, dens_pop2, pibpc2);
+    printf("*** COMPARAÇÃO DAS CARTAS ***\n");
 
+    // Comparando as cartas e exibindo o vencedor em cada categoria
+    printf(" População: Carta 1 venceu: %d\n", populacao1 > populacao2);
+    printf(" Área: Carta 1 venceu: %d\n", area1 > area2);
+    printf(" PIB: Carta 1 venceu: %d\n", pib1 > pib2);
+    printf(" Pontos Turísticos: Carta 1 venceu: %d\n", pts_tur1 > pts_tur2);
+    printf(" Densidade Populacional: Carta 1 venceu: %d\n", dens_pop1 > dens_pop2);
+    printf(" PIB per Capita: Carta 1 venceu: %d\n", pibpc1 > pibpc2);
+    printf(" Super Poder: Carta 1 venceu: %d\n", superPoder1 > superPoder2);
 
-
-
-
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
     return 0;
 }
